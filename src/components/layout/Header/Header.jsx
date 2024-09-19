@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import s from './Header.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
 
@@ -10,6 +10,18 @@ const Header = () => {
         setIsMenu(prev => !prev)
     }
 
+
+    useEffect(() => {
+        if (isMenu) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [isMenu]); 
 
     return (
         <>

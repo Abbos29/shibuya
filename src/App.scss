@@ -23,6 +23,10 @@ body {
     &.locked {
         overflow: hidden;
     }
+
+    .menu.active_menu {
+        overflow: hidden;
+    }
 }
 
 
