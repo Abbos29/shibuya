@@ -1,0 +1,35 @@
+.hero {
+    padding-top: 0;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+    
+    text-align: center;
+
+    h1 {
+        // font-family: serif;
+        // font-size: 580px;
+        font-size: clamp(6.875rem, -1.47rem + 35.88vw, 36.25rem);
+        position: relative;
+        // top: -120px;
+        bottom: clamp(0rem, -2.233rem + 9.16vw, 7.5rem);
+        // padding-bottom: 50px;
+        line-height: 0.8;
+        z-index: -1;
+    }
+
+    p {
+        // font-size: 30px;
+        font-size: clamp(1rem, 0.74rem + 1.07vw, 1.675rem);
+    }
+
+    img {
+        width: 100%;
+    }
+}

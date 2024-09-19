@@ -1,0 +1,40 @@
+@import './Vars.scss';
+
+
+@font-face {
+    font-family: "Bellfort Bold";
+    src: url("/fonts/Bellfort Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "Bellfort Bold";
+}
+
+body {
+    background-position: center;
+    background-size: 100%;
+    background-color: $colorBeige;
+    background-image: url(/bg-1.png);
+
+    color: $colorBrown;
+
+    &.locked {
+        overflow: hidden;
+    }
+}
+
+
+section {
+    padding: 60px 0;
+    padding: clamp(1.875rem, 1.317rem + 2.29vw, 3.75rem) 0;
+}
+
+.container {
+    max-width: 1600px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
