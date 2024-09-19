@@ -1,0 +1,101 @@
+@import "/src/Vars.scss";
+
+.title {
+    text-align: center;
+    line-height: 1.2;
+    // font-size: 28px;
+    font-size: clamp(1rem, 0.777rem + 0.92vw, 1.75rem);
+}
+
+.grid {
+    padding: 40px 0;
+
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    grid-template-areas:
+        "item_1 item_2 item_4"
+        "item_1 item_3 item_5";
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "item_1 item_1 "
+            "item_2 item_3 "
+            "item_4 item_5";
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr ;
+        grid-template-areas:
+            "item_1 "
+            "item_2 "
+            "item_3 "
+            "item_4 "
+            "item_5 ";
+    }
+}
+.item_1 {
+    grid-area: item_1;
+    background-image: url(/plans-1.png);
+}
+.item_2 {
+    grid-area: item_2;
+    background-image: url(/plans-2.png);
+}
+.item_3 {
+    grid-area: item_3;
+    background-image: url(/plans-3.png);
+}
+.item_4 {
+    grid-area: item_4;
+    background-image: url(/plans-4.png);
+}
+.item_5 {
+    grid-area: item_5;
+    background-image: url(/plans-5.png);
+}
+
+.item {
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    border: 3px solid black;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &:hover {
+        h3 {
+            font-size: 55px;
+        }
+        p {
+            height: 25px;
+        }
+    }
+
+    h3 {
+        color: $colorBeige;
+        font-size: 38px;
+
+        transition: all 0.3s;
+    }
+    p {
+        margin-top: 15px;
+        color: #aeaeae;
+
+        height: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+}
+
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
