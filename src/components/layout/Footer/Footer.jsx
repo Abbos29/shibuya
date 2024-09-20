@@ -28,13 +28,13 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className={s.imgs}>
+                    <div className={`${s.imgs} footer-imgs`}>
                         <img src="/footer-img-1.png" alt="img" />
                         <img src="/footer-img-2.png" alt="img" />
                     </div>
                 </div>
 
-                <h2 className={s.title}>
+                <h2 className={`${s.title} footer-title`}>
                     SHIBUYA <span>STATION</span>
                 </h2>
             </div>

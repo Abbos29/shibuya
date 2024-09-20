@@ -1,5 +1,4 @@
-@import './Vars.scss';
-
+@import "./Vars.scss";
 
 @font-face {
     font-family: "Bellfort Bold";
@@ -29,7 +28,6 @@ body {
     }
 }
 
-
 section {
     padding: 60px 0;
     padding: clamp(1.875rem, 1.317rem + 2.29vw, 3.75rem) 0;
@@ -42,3 +40,85 @@ section {
     padding: 0 15px;
 }
 
+// CAPITAL PAGE
+
+body {
+    &:has(.capital-page) {
+        background-image: url(/bg-2.png);
+        color: $colorPink;
+    }
+}
+
+.capital-page {
+    header {
+
+        @media (max-width: 768px) {
+            background-color: $colorPink;
+        }
+        .header-menu a {
+            color: $colorPink;
+        }
+
+        .header-icons {
+            img {
+                background-color: $colorPink;
+
+            }
+        }
+
+       
+    }
+
+    footer {
+
+        @media (max-width: 768px) {
+            background-color: $colorPink;
+
+        }
+        .footer-title {
+            color: $colorPink;
+
+            @media (max-width: 768px) {
+                color: $colorBrown;
+            }
+        }
+
+        h4 {
+            color: $colorBrown;
+        }
+
+        a {
+            color: $colorPink;
+
+            @media (max-width: 768px) {
+                color: $colorBrown;
+            }
+        }
+
+        img {
+            background-color: $colorPink;
+
+            @media (max-width: 768px) {
+                background-color: $colorBrown;
+            }
+        }
+
+
+        .footer-imgs {
+            img {
+                width: 100%;
+                border: 3px solid $colorPink;
+        
+                &:nth-child(2) {
+                    display: block;
+        
+                    border: 3px solid $colorBrown;
+                }
+        
+                &:nth-child(1) {
+                    display: none;
+                }
+            }
+        }
+    }
+}

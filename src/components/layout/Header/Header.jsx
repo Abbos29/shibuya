@@ -34,12 +34,12 @@ const Header = () => {
                     <nav className={s.nav}>
                         <img className={s.logo} src="/logo.png" alt="logo" />
 
-                        <div className={`${s.menu} ${isMenu ? s.active_menu : ''}`}>
+                        <div className={`${s.menu} ${isMenu ? s.active_menu : ''} header-menu`}>
                             <Link onClick={closeMenu} to={'/'}>home</Link>
                             <Link onClick={closeMenu} to={'/capital'}>shibuya capital</Link>
                             <Link onClick={closeMenu} to={'/incubator'}>incubator</Link>
 
-                            <div className={s.icons}>
+                            <div className={`${s.icons} header-icons`}>
                                 <Link to={'/'}>
                                     <img src="/icon-discord.png" alt="icon" />
                                 </Link>
@@ -50,7 +50,7 @@ const Header = () => {
                             </div>
                         </div>
 
-                        <img className={s.burger} onClick={toggleMenu} src="/burger-icon.svg" alt="icon" />
+                        <img className={`${s.burger} burger-icon`} onClick={toggleMenu} src="/burger-icon.svg" alt="icon" />
 
                     </nav>
                 </div>

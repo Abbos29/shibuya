@@ -13,6 +13,7 @@
     cursor: pointer;
     z-index: 11;
     display: none;
+    background-color: none !important;
 
     @media (max-width: 768px) {
         display: block;
