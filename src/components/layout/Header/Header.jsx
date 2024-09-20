@@ -10,6 +10,10 @@ const Header = () => {
         setIsMenu(prev => !prev)
     }
 
+    const closeMenu = () => {
+        setIsMenu(false)
+    }
+
 
     useEffect(() => {
         if (isMenu) {
@@ -31,17 +35,17 @@ const Header = () => {
                         <img className={s.logo} src="/logo.png" alt="logo" />
 
                         <div className={`${s.menu} ${isMenu ? s.active_menu : ''}`}>
-                            <Link to={'/'}>home</Link>
-                            <Link to={'/'}>shibuya capital</Link>
-                            <Link to={'/'}>incubator</Link>
+                            <Link onClick={closeMenu} to={'/'}>home</Link>
+                            <Link onClick={closeMenu} to={'/capital'}>shibuya capital</Link>
+                            <Link onClick={closeMenu} to={'/incubator'}>incubator</Link>
 
                             <div className={s.icons}>
                                 <Link to={'/'}>
-                                    <img src="/icon-discord.svg" alt="icon" />
+                                    <img src="/icon-discord.png" alt="icon" />
                                 </Link>
 
                                 <Link to={'/'}>
-                                    <img src="/icon-twitter.svg" alt="icon" />
+                                    <img src="/icon-twitter.png" alt="icon" />
                                 </Link>
                             </div>
                         </div>

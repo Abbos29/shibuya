@@ -1,0 +1,146 @@
+@import "/src/Vars.scss";
+
+.footer {
+    padding-top: 100px;
+
+    @media (max-width: 768px) {
+        background-color: $colorBrown;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        color: $colorBeige;
+    }
+}
+
+.wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+
+    @media (max-width: 1000px) {
+        grid-template-columns: 1.5fr 1fr;
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.imgs {
+    img {
+        width: 100%;
+        border: 3px solid $colorBrown;
+
+        &:nth-child(2) {
+            display: none;
+
+            @media (max-width: 992px) {
+                display: block;
+                border: 3px solid $colorPink;
+            }
+        }
+
+        &:nth-child(1) {
+            @media (max-width: 992px) {
+                display: none;
+            }
+        }
+    }
+}
+
+.box {
+    h3 {
+        // font-size: 90px;
+        font-size: clamp(1.25rem, -0.052rem + 5.34vw, 5.625rem);
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    gap: 10px;
+
+    a {
+        color: $colorBrown;
+        // font-size: 40px;
+        font-size: clamp(1.563rem, 1.414rem + 0.61vw, 2.063rem);
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        text-align: center;
+        margin: 0;
+
+        a {
+            color: $colorBeige;
+        }
+    }
+    
+
+    h4 {
+        font-size: 25px;
+        color: $colorBeige;
+        display: none;
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+    }
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+
+    a {
+        max-width: 59px;
+        min-width: 59px;
+        width: 59px;
+        aspect-ratio: 1;
+        background-color: $colorBrown;
+        
+        @media (max-width: 992px) {
+            min-width: 40px;
+            width: 40px;
+        }
+
+        @media (max-width: 768px) {
+           
+            background-color: $colorPink;
+        }
+
+        img {
+            width: 100%;
+            padding: 10px;
+        }
+    }
+}
+
+.title {
+    // font-size: 320px;
+    font-size: clamp(3.125rem, -1.899rem + 20.61vw, 20rem);
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: $colorBrown;
+    z-index: -1;
+    position: relative;
+
+    @media (max-width: 768px) {
+        z-index: 1;
+        font-size: 110px;
+        color: $colorPink;
+
+        span {
+            display: none;
+        }
+
+    }
+}

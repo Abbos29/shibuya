@@ -41,8 +41,8 @@ const Album = () => {
                     }}
 
                 >
-                    {albumData.map((item) => (
-                        <SwiperSlide key={item.id}>
+                    {albumData.map((item, index) => (
+                        <SwiperSlide key={index}>
                             <img className={s.album_img} src={item.imageUrl} alt={item.title} />
                         </SwiperSlide>
                     ))}
@@ -75,8 +75,8 @@ const Album = () => {
                         },
                     }}
                 >
-                    {albumData.map((item) => (
-                        <SwiperSlide key={item.id}>
+                    {albumData.map((item, index) => (
+                        <SwiperSlide key={index}>
                             <img className={s.album_img} src={item.imageUrl} alt={item.title} />
                         </SwiperSlide>
                     ))}
