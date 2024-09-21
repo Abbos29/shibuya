@@ -40,6 +40,55 @@ section {
     padding: 0 15px;
 }
 
+// SCROLLBAR
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    // background: #555;
+}
+
+// SWIPER
+
+.swiper-pagination {
+    position: absolute;
+    // bottom: 10px;
+    z-index: 3;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.swiper-pagination-bullet {
+    background: grey;
+    width: 13px;
+    height: 13px;
+    margin: 0 5px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background: $colorPink;
+    scale: 1.3;
+}
+
 // CAPITAL PAGE
 
 body {
@@ -51,7 +100,6 @@ body {
 
 .capital-page {
     header {
-
         @media (max-width: 768px) {
             background-color: $colorPink;
         }
@@ -62,18 +110,13 @@ body {
         .header-icons {
             img {
                 background-color: $colorPink;
-
             }
         }
-
-       
     }
 
     footer {
-
         @media (max-width: 768px) {
             background-color: $colorPink;
-
         }
         .footer-title {
             color: $colorPink;
@@ -103,18 +146,17 @@ body {
             }
         }
 
-
         .footer-imgs {
             img {
                 width: 100%;
                 border: 3px solid $colorPink;
-        
+
                 &:nth-child(2) {
                     display: block;
-        
+
                     border: 3px solid $colorBrown;
                 }
-        
+
                 &:nth-child(1) {
                     display: none;
                 }

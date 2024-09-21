@@ -3,7 +3,7 @@
 .wrap {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr 1fr;
-    gap: 10px;
+    // gap: 10px;
     transition: all 0.5s ease;
 
     .card {
@@ -17,14 +17,13 @@
             &:nth-child(1) {
                 writing-mode: horizontal-tb;
                 display: flex;
-        align-items: flex-end;
-        writing-mode: horizontal-tb;
+                align-items: flex-end;
+                writing-mode: horizontal-tb;
 
                 h3 {
                     display: none;
                 }
             }
-           
         }
     }
 
@@ -39,10 +38,31 @@
     &.hover3 {
         grid-template-columns: 1fr 1fr 1fr 3fr;
     }
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr !important;
+
+        .card {
+            writing-mode: horizontal-tb !important;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        h3 {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 }
 
 .card {
-    min-height: 600px;
+    border: 5px solid $colorBrown;
+
+    // min-height: 600px;
+    min-height: clamp(33.75rem, 26.875rem + 10vw, 37.5rem);
     color: $colorBeige;
     padding: 30px;
     background-repeat: no-repeat;
@@ -53,6 +73,10 @@
 
     position: relative;
 
+    @media (max-width: 768px) {
+        border: none;
+    }
+
     h3 {
         writing-mode: horizontal-tb;
         position: absolute;
@@ -61,15 +85,16 @@
         font-size: 50px;
     }
 
+    @media (hover: hover) {
+        &:hover {
+            display: flex;
+            align-items: flex-end;
+            writing-mode: horizontal-tb;
+            background-position: center center !important;
 
-    &:hover {
-        display: flex;
-        align-items: flex-end;
-        writing-mode: horizontal-tb;
-        background-position: center center !important;
-
-        h3 {
-            display: none;
+            h3 {
+                display: none;
+            }
         }
     }
 
@@ -80,6 +105,10 @@
     &:nth-child(2) {
         background-image: url(/value-2.jpg);
         background-position: -600px;
+
+        @media (max-width: 992px) {
+            background-position: center;
+        }
     }
 
     &:nth-child(3) {
@@ -90,3 +119,59 @@
         background-image: url(/value-4.jpg);
     }
 }
+
+.slider {
+    display: none;
+
+
+    @media (max-width: 768px) {
+        display: block;
+
+        .card {
+            min-height: 200px;
+
+            display: flex;
+            align-items: flex-end;
+
+            font-size: 16px;
+            line-height: 1.3;
+            padding: 20px;
+        }
+    }
+}
+
+
+
+
+
+.value_swiper {
+    padding-bottom: 70px !important;
+}
+
+
+.swiper_btns {
+    max-width: 280px;
+    margin: 0 auto;
+    position: relative;
+    bottom: -30px;
+}
+.swiperButtonPrev,
+.swiperButtonNext {
+    background-color: transparent; 
+    color: $colorPink; 
+    font-size: 24px; 
+    cursor: pointer;
+    z-index: 10;
+
+    position: absolute;
+
+}
+
+.swiperButtonPrev {
+    left: 10px; 
+}
+
+.swiperButtonNext {
+    right: 10px; 
+}
+
