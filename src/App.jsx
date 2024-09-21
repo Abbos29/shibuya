@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import Home from './Pages/Home';
 import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 import IncubatorPage from './Pages/IncubatorPage';
 import CapitalPage from './Pages/CapitalPage';
 import ScrollToTop from './components/ui/ScrollToTop/ScrollToTop';
+import HomePage from './Pages/HomePage';
 
 const App = () => {
 
@@ -24,7 +24,7 @@ const App = () => {
       <ScrollToTop />
 
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<HomePage />} />
         <Route path="/incubator" element={<IncubatorPage />} />
         <Route path="/capital" element={<CapitalPage />} />
       </Routes>

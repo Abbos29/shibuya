@@ -1,0 +1,66 @@
+.capital {
+    overflow: hidden;
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    @media (max-width: 992px) {
+        height: 200px;
+    }
+    @media (max-width: 768px) {
+        height: 150px;
+    }
+}
+
+.wrap {
+    h1 {
+        // font-size: 280px;
+        font-size: clamp(5rem, 1.279rem + 15.27vw, 17.5rem);
+        position: relative;
+        text-align: center;
+        margin-bottom: 70px;
+        // bottom: clamp(0rem, -2.233rem + 9.16vw, 7.5rem);
+        line-height: 0.9;
+        z-index: -1;
+
+        @media (max-width: 768px) {
+            margin-bottom: 40px;
+        }
+    }
+
+    p {
+        // font-size: 30px;
+        font-size: clamp(1rem, 0.74rem + 1.07vw, 1.675rem);
+    }
+
+    h5 {
+        font-size: clamp(1.125rem, 0.995rem + 0.53vw, 1.563rem);
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+.poster {
+    width: 100%;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    // font-size: 25px;
+    font-size: clamp(0.925rem, 0.695rem + 0.53vw, 1.563rem);
+    text-align: center;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

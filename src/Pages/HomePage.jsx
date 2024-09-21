@@ -4,7 +4,7 @@ import Meet from '../components/layout/Meet/Meet'
 import Plans from '../components/layout/Plans/Plans'
 import Team from '../components/layout/Team/Team'
 
-const Home = () => {
+const HomePage = () => {
     return (
         <>
             <Hero />
@@ -16,4 +16,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default HomePage

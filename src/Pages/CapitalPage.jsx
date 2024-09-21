@@ -1,10 +1,13 @@
+import Capital from "../components/layout/Capital/Capital"
+import Value from "../components/layout/Value/Value"
 
 const CapitalPage = () => {
   return (
     <>
-        <h2>SHIBUYA catpital page</h2>
+      <Capital />
+      <Value />
     </>
-)
+  )
 }
 
 export default CapitalPage
