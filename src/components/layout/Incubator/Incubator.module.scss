@@ -29,10 +29,17 @@
     align-items: center;
     justify-content: space-between;
 
+    transition: all .3s;
+
     @media (max-width: 768px) {
         flex-direction: column;
         justify-content: center;
         text-align: center;
+    }
+
+    &:hover {
+        background-color: $colorBrown;
+        color: $colorPink;
     }
 }
 

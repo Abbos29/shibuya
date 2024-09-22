@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 3fr 1fr 1fr 1fr;
     // gap: 10px;
-    transition: all 0.5s ease;
+    transition: all 1s ease;
 
     .card {
         writing-mode: vertical-rl;
@@ -20,8 +20,14 @@
                 align-items: flex-end;
                 writing-mode: horizontal-tb;
 
-                h3 {
+                h2,
+                p {
                     display: none;
+                }
+
+                h3 {
+                    max-width: 100%;
+                    letter-spacing: 1px;
                 }
             }
         }
@@ -83,6 +89,14 @@
         bottom: 30px;
         left: 30px;
         font-size: 50px;
+
+        transition: all 1s ease-in-out;
+
+        max-width: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        letter-spacing: 20px;
     }
 
     @media (hover: hover) {
@@ -92,8 +106,16 @@
             writing-mode: horizontal-tb;
             background-position: center center !important;
 
-            h3 {
+            h2,
+            p {
                 display: none;
+            }
+
+            h3 {
+                // display: none;
+                max-width: 100%;
+
+                letter-spacing: 1px;
             }
         }
     }
@@ -123,7 +145,6 @@
 .slider {
     display: none;
 
-
     @media (max-width: 768px) {
         display: block;
 
@@ -140,14 +161,51 @@
     }
 }
 
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
 
+    h3 {
+        // font-size: 200px;
+        font-size: clamp(3.125rem, 0.334rem + 11.45vw, 12.5rem);
+        color: $colorPink;
+    }
 
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+}
 
+.content_box {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end;
+
+    @media (max-width: 768px) {
+        align-items: center;
+        padding-top: 0px;
+
+        h4 {
+            z-index: -1;
+        }
+    }
+
+    h4 {
+        color: $colorBeige;
+        // font-size: 80px;
+        font-size: clamp(1.25rem, 0.134rem + 4.58vw, 5rem);
+    }
+}
 
 .value_swiper {
     padding-bottom: 70px !important;
 }
-
 
 .swiper_btns {
     max-width: 280px;
@@ -157,21 +215,19 @@
 }
 .swiperButtonPrev,
 .swiperButtonNext {
-    background-color: transparent; 
-    color: $colorPink; 
-    font-size: 24px; 
+    background-color: transparent;
+    color: $colorPink;
+    font-size: 24px;
     cursor: pointer;
     z-index: 10;
 
     position: absolute;
-
 }
 
 .swiperButtonPrev {
-    left: 10px; 
+    left: 10px;
 }
 
 .swiperButtonNext {
-    right: 10px; 
+    right: 10px;
 }
-

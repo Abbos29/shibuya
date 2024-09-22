@@ -1,0 +1,143 @@
+@import '/src/Vars.scss';
+
+
+.loader {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(/loader-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.loading {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 20px solid $colorBeige;
+    border-radius: 50%;
+    color: $colorBeige;
+    font-size: 30px;
+
+    .inner_circle {
+        display: block;
+        position: relative;
+        top: -5px;
+        right: -5px;
+    }
+}
+
+
+.enter {
+    text-align: center;
+    color: $colorBeige;
+    position: relative; 
+    top: -50px;
+
+    animation: animFade 1s;
+
+    h2 {
+        font-size: 250px;
+        position: relative;
+
+        top: -30px;
+    }
+
+    h5 {
+        font-size: 50px;
+    }
+
+}
+
+.loader_top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background-image: url(/bg-2.png);
+
+    animation: animTop 1s;
+
+    h3 {
+        color: $colorPink;
+        font-size: 28px;
+    }
+
+}
+
+
+.loader_bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 55px 20px;
+
+    text-align: center;
+
+    background-image: url(/bg-2.png);
+
+    animation: animBottom 1s;
+
+    .container {
+        position: relative;
+    }
+
+    p {
+        color: $colorPink;
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    img {
+        position: absolute;
+        top: 30px;
+        width: 70px;
+        right: 30px;
+    }
+}
+
+
+@keyframes animFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animTop {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes animBottom {
+    0% {
+        bottom: -100%;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+
+
+
+

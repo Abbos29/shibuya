@@ -1,28 +1,27 @@
-// ValueData.js
 const valueData = [
     {
         id: 0,
         title: "investment",
         description: "投資",
-        letter: "I"
+        letter: "investment"
     },
     {
         id: 1,
         title: "advicing",
         description: "アドバイスする",
-        letter: "A"
+        letter: "advicing"
     },
     {
         id: 2,
         title: "marketing support",
         description: "マーケティングサポート",
-        letter: "M"
+        letter: "marketing support"
     },
     {
         id: 3,
         title: "community activation",
         description: "コミュニティの活性化",
-        letter: "C"
+        letter: "community activation"
     }
 ];
 

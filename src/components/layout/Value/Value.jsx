@@ -7,6 +7,7 @@ import 'swiper/css/free-mode';
 import { FreeMode, Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 import valueData from './ValueData';
+import Button from '../../ui/Button/Button';
 
 const Value = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -52,6 +53,15 @@ const Value = () => {
                         </div>
                     ))}
                 </div>
+
+                <div className={s.content}>
+                    <h3>Our value:</h3>
+
+                    <div className={s.content_box}>
+                        <Button text="Submit your project" variant="solid" />
+                        <h4>私たちの価値観</h4>
+                    </div>
+                </div>
             </div>
 
 
@@ -61,7 +71,7 @@ const Value = () => {
                     slidesPerView={1.4}
                     spaceBetween={5}
                     centeredSlides={true}
-                    modules={[ Autoplay, Navigation, Pagination]}
+                    modules={[Autoplay, Navigation, Pagination]}
                     // speed={5000}
                     loop={true}
                     autoplay={{
