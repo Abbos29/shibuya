@@ -14,6 +14,7 @@ const Meet = () => {
                         <div className={s.box}>
                             <h2>meet haru</h2>
                             <p>Haru is one of the main characters of our brand, being the first concept of the collection we created in May 2023.</p>
+                            {/* <img src="/meet-2.png" alt="img" /> */}
                             <img src="/meet-2.png" alt="img" />
                             <img src="/meet-china.svg" alt="img" />
                         </div>

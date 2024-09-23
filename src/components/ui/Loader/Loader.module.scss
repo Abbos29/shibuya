@@ -19,6 +19,7 @@
 .loading {
     width: 200px;
     height: 200px;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,6 +35,12 @@
         top: -5px;
         right: -5px;
     }
+
+    @media (max-width: 480px) {
+        width: 150px;
+        height: 150px;
+        border: 14px solid $colorBeige;
+    }
 }
 
 
@@ -46,14 +53,24 @@
     animation: animFade 1s;
 
     h2 {
-        font-size: 250px;
+        // font-size: 250px;
+        font-size: clamp(3.75rem, 0.215rem + 14.5vw, 15.625rem);
         position: relative;
 
         top: -30px;
+
+        @media (max-width: 480px) {
+            top: -15px;
+        }
     }
 
     h5 {
-        font-size: 50px;
+        // font-size: 50px;
+        font-size: clamp(1.25rem, 0.692rem + 2.29vw, 3.125rem);
+    }
+
+    @media (max-width: 480px) {
+        top: 0;
     }
 
 }
@@ -69,11 +86,12 @@
 
     background-image: url(/bg-2.png);
 
-    animation: animTop 1s;
+    animation: animTop 1.6s;
 
     h3 {
         color: $colorPink;
-        font-size: 28px;
+        // font-size: 28px;
+        font-size: clamp(1.125rem, 0.939rem + 0.76vw, 1.75rem);
     }
 
 }
@@ -84,13 +102,14 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 55px 20px;
+    // padding: 55px 20px;
+    padding: clamp(1.25rem, 0.599rem + 2.67vw, 3.438rem) 20px;
 
     text-align: center;
 
     background-image: url(/bg-2.png);
 
-    animation: animBottom 1s;
+    animation: animBottom 1.6s;
 
     .container {
         position: relative;
@@ -98,7 +117,9 @@
 
     p {
         color: $colorPink;
-        font-size: 28px;
+        // font-size: 28px;
+        font-size: clamp(0.875rem, 0.615rem + 1.07vw, 1.75rem);
+
         line-height: 1.2;
     }
 
@@ -107,6 +128,12 @@
         top: 30px;
         width: 70px;
         right: 30px;
+
+        @media (max-width: 480px) {
+            position: static;   
+            margin-top: 10px;
+            width: 50px;
+        }
     }
 }
 

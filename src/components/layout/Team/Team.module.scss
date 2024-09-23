@@ -38,7 +38,8 @@
 .item {
     filter: brightness(1) sepia(5%) saturate(300%);
 
-    min-height: 330px;
+    min-height: 290px;
+    max-height: 300px;
     background-position: center;
     background-size: cover;
 
@@ -52,38 +53,50 @@
 
     background-color: $colorBrown;
 
+    background-size: cover;
+    background-position: center;
+
+    background-size: 120%;
+
+    transition: all 0.3s;
+
+    @media (max-width: 768px) {
+        min-height: 260px;
+    }
+
     @media (max-width: 480px) {
-        min-height: 230px;
+        min-height: 200px;
     }
 
     h3 {
-        font-size: 28px;
+        // font-size: 28px;
+        font-size: clamp(1.25rem, 1.101rem + 0.61vw, 1.75rem);
         color: $colorBeige;
         line-height: 1.2;
 
         text-align: center;
     }
 
-    background-size: cover;
-    background-position: center;
-
-    background-size: 110%;
-    transition: background-size 0.3s;
     &:hover {
-        background-size: 120%;
+        background-size: 125%;
     }
 
     &:nth-child(1) {
-        background-image: url(/public/plans-3.png);
+        background-image: url(/public/team-2.png);
     }
     &:nth-child(2) {
-        background-image: url(/public/plans-4.png);
+        background-image: url(/public/team-4.png);
     }
     &:nth-child(3) {
-        background-image: url(/public/plans-5.png);
+        background-image: url(/public/team-3.png);
     }
     &:nth-child(4) {
-        background-image: url(/public/plans-3.png);
+        background-image: url(/public/team-1.png);
+
+        background-size: 155%;
+        &:hover {
+            background-size: 165%;
+        }
     }
 }
 

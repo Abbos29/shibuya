@@ -6,6 +6,8 @@
 
     @media (max-width: 768px) {
         display: block;
+        opacity: 0;
+        visibility: hidden  ;
     }
 }
 
