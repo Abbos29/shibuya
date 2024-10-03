@@ -1,51 +1,70 @@
 import React, { useState, useEffect } from 'react';
 import s from './Loader.module.scss';
 
-const Loader = () => {
+const Loader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [canEnter, setCanEnter] = useState(false);
 
   useEffect(() => {
-
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev < 100) {
-          return prev + 1;
-        } else {
-          setIsLoaded(true);
-          clearInterval(interval);
-          return 100;
+    let loadedItems = 0;
+    const totalItems = document.querySelectorAll('img, script, link[rel="stylesheet"]').length;
+    const observer = new PerformanceObserver((list) => {
+      for (const entry of list.getEntriesByType('resource')) {
+        if (['img', 'link', 'script'].includes(entry.initiatorType)) {
+          loadedItems += 1;
+          setProgress(Math.floor((loadedItems / totalItems) * 100));
         }
-      });
-    }, 30);
+      }
+    });
+    
+    observer.observe({ entryTypes: ['resource'] });
 
-    return () => clearInterval(interval);
+    window.addEventListener('load', () => {
+      setProgress(100);
+      setIsLoaded(true);
+    });
+
+    return () => observer.disconnect();
   }, []);
+
+  const handleEnter = () => {
+    if (isLoaded) {
+      setCanEnter(true);
+      onComplete();
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.key === 'Enter' && isLoaded) {
+        handleEnter();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [isLoaded]);
 
   return (
     <div className={s.loader}>
-
-      {!isLoaded && (
-        <div className={s.loading}>
-          <div className={s.progress_circle}>
-            <div className={s.circle}>
-              <div className={s.inner_circle}>
-                <span>{progress}%</span>
-              </div>
+      {/* Показываем .loading, пока не завершена загрузка */}
+      <div className={`${s.loading} ${isLoaded ? s.hidden : ''}`}>
+        <div className={s.progress_circle}>
+          <div className={s.circle}>
+            <div className={s.inner_circle}>
+              <span>{progress}%</span>
             </div>
           </div>
         </div>
-      )}
+      </div>
 
-      {isLoaded && (
-        <div className={s.enter}>
-          <h2>ENTER</h2>
-          <h5>SHIBUYA STATION</h5>
-        </div>
-      )}
-
-
-
+      {/* Показываем .enter, только когда загрузка завершена */}
+      <div className={`${s.enter} ${isLoaded ? '' : s.hidden}`} onClick={handleEnter}>
+        <h2>ENTER</h2>
+        <h5>SHIBUYA STATION</h5>
+      </div>
 
       {isLoaded && (
         <>

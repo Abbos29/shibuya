@@ -6,7 +6,6 @@
     @media (max-width: 768px) {
         // background-color: $colorBrown;
         padding-top: 50px;
-        padding-bottom: 50px;
         // color: $colorBeige;
     }
 }
@@ -130,11 +129,13 @@
     color: $colorBrown;
     z-index: -1;
     position: relative;
+    overflow: hidden;
 
     @media (max-width: 768px) {
         z-index: 1;
         font-size: 110px;
         // color: $colorPink;
+        padding-top: 20px;
 
         span {
             display: none;

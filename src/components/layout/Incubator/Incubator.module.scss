@@ -1,5 +1,8 @@
 @import "/src/Vars.scss";
 
+.incubator {
+    padding-top: 0;
+}
 
 .wrap {
     color: $colorBrown;
@@ -88,12 +91,15 @@
     // font-size: 450px;
     font-size: clamp(5rem, -1.885rem + 28.24vw, 28.125rem);
     position: relative;
-    bottom: clamp(0rem, -2.233rem + 9.16vw, 7.5rem);
+    // bottom: clamp(0rem, -2.233rem + 9.16vw, 7.5rem);
     // padding-bottom: 50px;
-    line-height: 0.8;
     z-index: -1;
     text-align: center;
+    line-height: 0.9;
 
+    @media (max-width: 768px) {
+        padding-top: 40px;
+    }
 }
 
 

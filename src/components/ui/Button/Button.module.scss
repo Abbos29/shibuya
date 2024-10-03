@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 30px 18px;
+    padding: 18px 30px 18px;
     width: max-content;
     border: 2px solid $colorPink;
 
@@ -16,7 +16,7 @@
 
     svg {
         position: relative;
-        top: 5px;
+        // top: 5px;
         path {
             position: relative;
             transition: all 0.3s;
@@ -24,7 +24,7 @@
     }
 
     @media (max-width: 480px) {
-        padding: 10px 20px 18px;
+        padding: 18px 20px 18px;
     }
 }
 

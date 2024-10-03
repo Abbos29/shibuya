@@ -1,13 +1,11 @@
 @import "/src/Vars.scss";
 
-
 .title {
     text-align: center;
     line-height: 1.2;
     // font-size: 28px;
     font-size: clamp(1rem, 0.777rem + 0.92vw, 1.75rem);
 }
-
 
 .grid {
     padding: 40px 0;
@@ -29,13 +27,17 @@
     }
 
     @media (max-width: 900px) {
-        grid-template-columns: 1fr ;
+        grid-template-columns: 1fr;
         grid-template-areas:
             "item_1 "
             "item_2 "
             "item_3 "
             "item_4 "
             "item_5 ";
+    }
+
+    @media (max-width: 768px) {
+        padding-top: 20px;
     }
 }
 .item_1 {
@@ -49,7 +51,6 @@
 .item_3 {
     grid-area: item_3;
     background-image: url(/plans-3.png);
-
 }
 .item_4 {
     grid-area: item_4;
@@ -74,12 +75,14 @@
         min-height: 270px;
     }
 
-    &:hover {
-        h3 {
-            font-size: 55px;
-        }
-        p {
-            max-height: 100%;
+    @media (hover: hover) {
+        &:hover {
+            h3 {
+                font-size: 55px;
+            }
+            p {
+                max-height: 100%;
+            }
         }
     }
 
@@ -96,15 +99,18 @@
         max-height: 0;
         overflow: hidden;
         transition: all 0.8s ease-out;
-        padding-bottom: 3px;
+        // padding-bottom: 3px;
     }
 
     @media (max-width: 900px) {
         text-align: center;
         align-items: center;
+
+        p {
+            max-height: 100%;
+        }
     }
 }
-
 
 .inner {
     display: flex;
