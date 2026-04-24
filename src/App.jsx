@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 import IncubatorPage from './Pages/IncubatorPage';
@@ -7,10 +7,13 @@ import CapitalPage from './Pages/CapitalPage';
 import ScrollToTop from './components/ui/ScrollToTop/ScrollToTop';
 import HomePage from './Pages/HomePage';
 import Loader from './components/ui/Loader/Loader';
+import useLenisReveal from './hooks/useLenisReveal';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
+
+  useLenisReveal();
 
   const getPageClass = () => {
     if (location.pathname === '/capital') return 'capital-page';

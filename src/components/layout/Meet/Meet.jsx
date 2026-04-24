@@ -3,7 +3,7 @@ import s from './Meet.module.scss';
 const Meet = () => {
     return (
         <>
-            <section className={s.meet}>
+            <section data-reveal className={s.meet}>
                 <div className="container">
                     <div className={s.wrap}>
                         <div className={s.content}>

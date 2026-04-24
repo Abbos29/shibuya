@@ -10,7 +10,7 @@ import { FreeMode, Autoplay } from 'swiper/modules';
 
 const Album = () => {
     return (
-        <section className={s.album}>
+        <section data-reveal className={s.album}>
             <div className={s.wrap}>
                 <Swiper
                     slidesPerView={0.65}
