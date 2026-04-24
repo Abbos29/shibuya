@@ -2,7 +2,7 @@ import s from './Hero.module.scss';
 
 const Hero = () => {
   return (
-    <section className={s.hero}>
+    <section data-reveal className={s.hero}>
         <div className="container">
             <div className={s.wrap}>
                 <h1>SHIBUYA</h1>

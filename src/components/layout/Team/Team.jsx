@@ -3,7 +3,7 @@ import s from './Team.module.scss';
 
 const Team = () => {
     return (
-        <section className={s.team}>
+        <section data-reveal className={s.team}>
             <div className="container">
                 <div className={s.wrap}>
                     <div className={s.box}>
@@ -13,16 +13,16 @@ const Team = () => {
 
 
                         <div className={s.grid}>
-                            <div className={`${s.item} ${s.item_1}`}>
+                            <div className={`${s.item} ${s.item_1}`} data-reveal>
                                 <h3>Alex (founder)</h3>
                             </div>
-                            <div className={`${s.item} ${s.item_2}`}>
+                            <div className={`${s.item} ${s.item_2}`} data-reveal>
                                 <h3>Nady PDRG (Artist)</h3>
                             </div>
-                            <div className={`${s.item} ${s.item_3}`}>
+                            <div className={`${s.item} ${s.item_3}`} data-reveal>
                                 <h3>Mani (Community Lead)</h3>
                             </div>
-                            <div className={`${s.item} ${s.item_4}`}>
+                            <div className={`${s.item} ${s.item_4}`} data-reveal>
                                 <h3>Kisa Miyamura (Creative Director)</h3>
                             </div>
                         </div>
