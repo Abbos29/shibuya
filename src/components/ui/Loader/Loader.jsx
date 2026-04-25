@@ -1,56 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import s from './Loader.module.scss';
 
 const Loader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [canEnter, setCanEnter] = useState(false);
 
   useEffect(() => {
-    let loadedItems = 0;
-    const totalItems = document.querySelectorAll('img, script, link[rel="stylesheet"]').length;
-    const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntriesByType('resource')) {
-        if (['img', 'link', 'script'].includes(entry.initiatorType)) {
-          loadedItems += 1;
-          setProgress(Math.floor((loadedItems / totalItems) * 100));
-        }
-      }
-    });
-    
-    observer.observe({ entryTypes: ['resource'] });
+    let progressTimer;
+    let finishTimer;
 
-    window.addEventListener('load', () => {
+    const completeLoader = () => {
       setProgress(100);
-      setIsLoaded(true);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const handleEnter = () => {
-    if (isLoaded) {
-      setCanEnter(true);
-      onComplete();
-    }
-  };
-
-  useEffect(() => {
-    const handleKeyPress = (e) => {
-      if (e.key === 'Enter' && isLoaded) {
-        handleEnter();
-      }
+      finishTimer = window.setTimeout(() => {
+        onComplete();
+      }, 250);
     };
 
-    window.addEventListener('keydown', handleKeyPress);
+    progressTimer = window.setInterval(() => {
+      setProgress((prev) => (prev >= 90 ? prev : prev + 5));
+    }, 60);
 
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [isLoaded]);
+    if (document.readyState === 'complete') {
+      completeLoader();
+    } else {
+      window.addEventListener('load', completeLoader, { once: true });
+      // Safety timeout: never block the app even if some resource hangs.
+      finishTimer = window.setTimeout(completeLoader, 2200);
+    }
+
+    return () => {
+      window.clearInterval(progressTimer);
+      window.clearTimeout(finishTimer);
+      window.removeEventListener('load', completeLoader);
+    };
+  }, [onComplete]);
 
   return (
     <div className={s.loader}>
-      {/* Показываем .loading, пока не завершена загрузка */}
-      <div className={`${s.loading} ${isLoaded ? s.hidden : ''}`}>
+      <div className={s.loading}>
         <div className={s.progress_circle}>
           <div className={s.circle}>
             <div className={s.inner_circle}>
@@ -60,31 +47,16 @@ const Loader = ({ onComplete }) => {
         </div>
       </div>
 
-      {/* Показываем .enter, только когда загрузка завершена */}
-      <div className={`${s.enter} ${isLoaded ? '' : s.hidden}`} onClick={handleEnter}>
-        <h2>ENTER</h2>
-        <h5>SHIBUYA STATION</h5>
+      <div className={s.enter}>
+        <h2>SHIBUYA</h2>
+        <h5>Loading station...</h5>
       </div>
-
-      {isLoaded && (
-        <>
-          <div className={s.loader_top}>
-            <h3>次の駅は渋谷です！</h3>
-          </div>
-
-          <div className={s.loader_bottom}>
-            <div className="container">
-              <div className={s.box}>
-                <p>The next station is Shibuya!</p>
-                <p>Welcome to the pixel art collection, inspired by Japanese and anime culture.</p>
-                <img src="/loader-bottom-icon.jpg" alt="icon" />
-              </div>
-            </div>
-          </div>
-        </>
-      )}
     </div>
   );
+};
+
+Loader.propTypes = {
+  onComplete: PropTypes.func.isRequired,
 };
 
 export default Loader;
