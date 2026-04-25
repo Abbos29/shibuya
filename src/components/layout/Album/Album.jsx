@@ -48,10 +48,10 @@ const Album = () => {
                     ))} */}
 
                     <SwiperSlide>
-                        <img className={s.album_img} src="/carousel-1.png" alt="carousel" />
+                        <img className={s.album_img} src="/carousel-1.png" alt="carousel" loading="lazy" decoding="async" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img className={s.album_img} src="/carousel-1.png" alt="carousel" />
+                        <img className={s.album_img} src="/carousel-1.png" alt="carousel" loading="lazy" decoding="async" />
                     </SwiperSlide>
                 </Swiper>
 
@@ -91,10 +91,10 @@ const Album = () => {
 
 
                     <SwiperSlide>
-                        <img className={s.album_img} src="/carousel-2.png" alt="carousel" />
+                        <img className={s.album_img} src="/carousel-2.png" alt="carousel" loading="lazy" decoding="async" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <img className={s.album_img} src="/carousel-2.png" alt="carousel" />
+                        <img className={s.album_img} src="/carousel-2.png" alt="carousel" loading="lazy" decoding="async" />
                     </SwiperSlide>
                 </Swiper>
 

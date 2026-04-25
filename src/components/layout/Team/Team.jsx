@@ -9,7 +9,7 @@ const Team = () => {
                     <div className={s.box}>
                         <h2>Core team:</h2>
                         
-                        <img className={s.pretitle_img} src="/team-icon-2.svg" alt="icon" />
+                        <img className={s.pretitle_img} src="/team-icon-2.svg" alt="icon" loading="lazy" decoding="async" />
 
 
                         <div className={s.grid}>
@@ -29,7 +29,7 @@ const Team = () => {
                     </div>
 
                     <div className={s.icon}>
-                        <img src="/team-icon.svg" alt="icon" />
+                        <img src="/team-icon.svg" alt="icon" loading="lazy" decoding="async" />
                     </div>
                 </div>
             </div>

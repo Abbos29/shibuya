@@ -11,7 +11,7 @@ const Incubator = () => {
 
             <div className={s.wrap}>
                 <div className={s.imgs}>
-                    <img src="/incubator-main.png" alt="img" />
+                    <img src="/incubator-main.png" alt="img" loading="lazy" decoding="async" />
                 </div>
 
                 <div className={s.list}>
@@ -23,7 +23,7 @@ const Incubator = () => {
                                 <p>{item.description}</p>
                             </div>
 
-                            <img src={item.image} alt={item.name} />
+                            <img src={item.image} alt={item.name} loading="lazy" decoding="async" />
                         </div>
                     ))}
                 </div>
