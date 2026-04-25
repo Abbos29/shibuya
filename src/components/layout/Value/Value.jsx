@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import s from './Value.module.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { FreeMode, Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 import valueData from './ValueData';
 import Button from '../../ui/Button/Button';
@@ -35,13 +35,13 @@ const Value = () => {
     };
 
     return (
-        <section className={s.value}>
+        <section className={s.value} data-reveal>
             <div className="container">
                 <div className={`${s.wrap} ${activeIndex !== null ? s[`hover${activeIndex}`] : ''}`}>
                     {valueData.map((item) => (
                         <div
                             key={item.id}
-                            className={s.card}
+                            className={s.card} data-reveal
                             onMouseEnter={() => handleMouseEnter(item.id)}
                             onMouseLeave={handleMouseLeave}
                         >
@@ -54,11 +54,11 @@ const Value = () => {
                     ))}
                 </div>
 
-                <div className={s.content}>
+                <div className={s.content} data-reveal>
                     <h3>Our value:</h3>
 
                     <div className={s.content_box}>
-                        <Button text="Submit your project" variant="solid" />
+                        <Button text="Submit your project" variant="solid" href="mailto:hello@shibuyastation.xyz?subject=Project%20Submission" />
                         <h4>私たちの価値観</h4>
                     </div>
                 </div>

@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { Suspense, lazy, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
-import IncubatorPage from './Pages/IncubatorPage';
-import CapitalPage from './Pages/CapitalPage';
 import ScrollToTop from './components/ui/ScrollToTop/ScrollToTop';
-import HomePage from './Pages/HomePage';
 import Loader from './components/ui/Loader/Loader';
+import useLenisReveal from './hooks/useLenisReveal';
+
+const HomePage = lazy(() => import('./Pages/HomePage'));
+const IncubatorPage = lazy(() => import('./Pages/IncubatorPage'));
+const CapitalPage = lazy(() => import('./Pages/CapitalPage'));
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => sessionStorage.getItem('shibuya_loader_seen') !== '1');
   const location = useLocation();
+
+  useLenisReveal(location.pathname);
 
   const getPageClass = () => {
     if (location.pathname === '/capital') return 'capital-page';
-    // return 'default-page';
+    return '';
   };
 
   const handleLoaderComplete = () => {
+    sessionStorage.setItem('shibuya_loader_seen', '1');
     setLoading(false);
   };
 
@@ -26,18 +31,18 @@ const App = () => {
   }
 
   return (
-    <>
-      <div className={getPageClass()}>
-        <Header />
-        <ScrollToTop />
+    <div className={getPageClass()}>
+      <Header />
+      <ScrollToTop />
+      <Suspense fallback={<div className="page-loading">Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/incubator" element={<IncubatorPage />} />
           <Route path="/capital" element={<CapitalPage />} />
         </Routes>
-        <Footer />
-      </div>
-    </>
+      </Suspense>
+      <Footer />
+    </div>
   );
 };
 
