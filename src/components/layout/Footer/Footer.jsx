@@ -29,8 +29,8 @@ const Footer = () => {
           </div>
 
           <div className={`${s.imgs} footer-imgs`}>
-            <img src="/footer-img-1.png" alt="img" loading="lazy" decoding="async" />
-            <img src="/footer-img-2.png" alt="img" loading="lazy" decoding="async" />
+            <img src="/footer-img-1.png" alt="img" />
+            <img src="/footer-img-2.png" alt="img" />
           </div>
         </div>
 
