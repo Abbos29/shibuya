@@ -22,10 +22,6 @@ const App = () => {
     setLoading(false);
   };
 
-  if (loading) {
-    return <Loader onComplete={handleLoaderComplete} />;
-  }
-
   return (
     <div className={getPageClass()}>
       <Header />
