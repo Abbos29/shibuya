@@ -1,31 +1,38 @@
+import { useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
-import IncubatorPage from './Pages/IncubatorPage';
-import CapitalPage from './Pages/CapitalPage';
 import ScrollToTop from './components/ui/ScrollToTop/ScrollToTop';
-import HomePage from './Pages/HomePage';
+import Loader from './components/ui/Loader/Loader';
 import useLenisReveal from './hooks/useLenisReveal';
 
 const App = () => {
+  const [loading, setLoading] = useState(() => sessionStorage.getItem('shibuya_loader_seen') !== '1');
   const location = useLocation();
 
-  useLenisReveal(location.pathname);
+  useLenisReveal();
 
   const getPageClass = () => {
     if (location.pathname === '/capital') return 'capital-page';
     return '';
   };
 
+  const handleLoaderComplete = () => {
+    sessionStorage.setItem('shibuya_loader_seen', '1');
+    setLoading(false);
+  };
+
   return (
     <div className={getPageClass()}>
       <Header />
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/incubator" element={<IncubatorPage />} />
-        <Route path="/capital" element={<CapitalPage />} />
-      </Routes>
+      <Suspense fallback={<div className="page-loading">Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/incubator" element={<IncubatorPage />} />
+          <Route path="/capital" element={<CapitalPage />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </div>
   );
